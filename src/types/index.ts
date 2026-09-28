@@ -58,7 +58,10 @@ export interface Testimonial {
   avatar: ImageAsset;
 }
 
+export type PartnerMark = "waves" | "sunburst" | "bolt" | "clover" | "rings";
+
 export interface Partner {
   id: string;
   name: string;
+  mark: PartnerMark;
 }

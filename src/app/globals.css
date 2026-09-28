@@ -41,6 +41,8 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -100,6 +102,24 @@
   :root {
     --grid-size: 7.5rem;
   }
+}
+
+/* Track holds two identical copies, so shifting by half loops seamlessly. */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Fades content out at both horizontal edges into whatever background is behind it. */
+@utility mask-fade-x {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black var(--fade-size, 12%),
+    black calc(100% - var(--fade-size, 12%)),
+    transparent
+  );
 }
 
 /* Lines sit on cell edges and are centred on the viewport, so stacked bands line up. */
