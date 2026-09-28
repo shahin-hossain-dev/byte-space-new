@@ -10,3 +10,4 @@ export * from "./growth";
 export * from "./creator";
 export * from "./testimonials";
 export * from "./footer";
+export * from "./pages";
