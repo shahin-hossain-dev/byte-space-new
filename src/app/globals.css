@@ -84,6 +84,31 @@
   --ring: #003be2;
 
   --radius: 0.625rem;
+
+  /* Blueprint grid on blue bands (header, hero, creator CTA). Header height = one cell. */
+  --grid-line: color-mix(in oklab, var(--primary-foreground) 12%, transparent);
+  --grid-size: 4.5rem;
+}
+
+@media (width >= 48rem) {
+  :root {
+    --grid-size: 6rem;
+  }
+}
+
+@media (width >= 64rem) {
+  :root {
+    --grid-size: 7.5rem;
+  }
+}
+
+/* Lines sit on cell edges and are centred on the viewport, so stacked bands line up. */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  background-position: calc(50% + var(--grid-size) / 2) 0;
 }
 
 @layer base {

@@ -1,6 +1,12 @@
 const BASE = "/assets/images";
 
 export const IMAGES = {
+  logo: {
+    /** White wordmark — for blue backgrounds. */
+    light: `${BASE}/logo/logo-light.png`,
+    /** Dark wordmark — for white backgrounds. */
+    dark: `${BASE}/logo/logo-dark.png`,
+  },
   hero: {
     manLaptop: `${BASE}/hero/man-laptop.png`,
     manLaptopShadow: `${BASE}/hero/man-laptop-shadow.png`,
