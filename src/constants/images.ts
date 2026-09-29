@@ -34,11 +34,11 @@ export const IMAGES = {
     lg: [1, 2, 3].map((n) => `${BASE}/avatars/lg/avatar-${n}.png`),
   },
   courses: {
-    figma: `${BASE}/courses/learn-figma.jpg`,
-    digitalAsset: `${BASE}/courses/digital-asset.jpg`,
-    bigData: `${BASE}/courses/big-data.jpg`,
-    productivity: `${BASE}/courses/productivity.jpg`,
-    money: `${BASE}/courses/money-management.jpg`,
-    startup: `${BASE}/courses/startup.jpg`,
+    figma: `${BASE}/courses/learn-figma.png`,
+    digitalAsset: `${BASE}/courses/digital-asset.png`,
+    bigData: `${BASE}/courses/big-data.png`,
+    productivity: `${BASE}/courses/productivity.png`,
+    money: `${BASE}/courses/money-management.png`,
+    startup: `${BASE}/courses/startup.png`,
   },
 } as const;

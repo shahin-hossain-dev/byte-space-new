@@ -41,6 +41,8 @@ export interface Course {
   priceUnit: string;
   enrolledAvatars: ImageAsset[];
   enrolledExtra: number;
+  /** Category tags the course appears under (besides "Featured"). */
+  tags: string[];
 }
 
 export interface LearningPath {
