@@ -8,6 +8,7 @@ interface SectionHeadingProps {
   className?: string;
   /** Extra classes for the h2, e.g. a max-width to force the design's line break. */
   titleClassName?: string;
+  descriptionClassName?: string;
 }
 
 /** Section h2 + intro paragraph used across the landing page. */
@@ -18,6 +19,7 @@ export function SectionHeading({
   align = "center",
   className,
   titleClassName,
+  descriptionClassName,
 }: SectionHeadingProps) {
   return (
     <div className={cn(align === "center" && "mx-auto text-center", className)}>
@@ -36,6 +38,7 @@ export function SectionHeading({
           className={cn(
             "mt-4 max-w-226.5 text-base leading-[1.8] text-muted-foreground md:mt-6",
             align === "center" && "mx-auto",
+            descriptionClassName,
           )}
         >
           {description}
