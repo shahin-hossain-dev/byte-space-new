@@ -8,15 +8,8 @@ export function GrowthSection() {
   return (
     <section
       aria-labelledby="growth-title"
-      className="relative isolate overflow-hidden bg-background pt-14 pb-10 md:pt-20 md:pb-14 lg:pt-30 lg:pb-16"
+      className="pt-14 pb-10 md:pt-20 md:pb-14 lg:pt-30 lg:pb-0"
     >
-      {/* Soft lime and blue glows behind the content, as in the design. */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-40 left-[10%] size-150 rounded-full bg-highlight/35 blur-[120px]" />
-        <div className="absolute -bottom-60 -left-40 size-150 rounded-full bg-primary/10 blur-[120px]" />
-        <div className="absolute -top-40 -right-40 size-125 rounded-full bg-primary/5 blur-[120px]" />
-      </div>
-
       <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-8 xl:grid-cols-[1fr_586px] xl:gap-0">
         {/* Bottom padding offsets the photo's drop shadow so the copy lines up with the visible photo. */}
         <div className="lg:pb-35">
