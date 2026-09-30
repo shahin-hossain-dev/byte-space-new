@@ -3,8 +3,8 @@ import { HERO } from "@/constants";
 import { Container } from "@/components/layout/container";
 import { HappyStudentsCard } from "@/components/shared/happy-students-card";
 import { ProgressCard } from "@/components/shared/progress-card";
+import { SearchForm } from "@/components/shared/search-form";
 import { CategoryCard } from "./category-card";
-import { HeroSearch } from "./hero-search";
 import { HeroShapes } from "./hero-shapes";
 
 export function HeroSection() {
@@ -25,7 +25,7 @@ export function HeroSection() {
         <p className="mt-4 max-w-205 text-base text-primary-foreground/90 md:mt-6 md:text-lg">
           {HERO.description}
         </p>
-        <HeroSearch className="mt-8 max-w-145 md:mt-12" />
+        <SearchForm id="hero-search" className="mt-8 max-w-145 md:mt-12" />
 
         <div className="relative mt-10 w-full max-w-180.5 md:mt-6 lg:mt-0">
           {/* -z-10: sits under the decorative shapes, like the design. */}

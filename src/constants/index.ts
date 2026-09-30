@@ -12,3 +12,4 @@ export * from "./testimonials";
 export * from "./footer";
 export * from "./pages";
 export * from "./auth";
+export * from "./search";
