@@ -1,5 +1,6 @@
 import { CoursesSection } from "@/components/sections/courses/courses-section";
 import { CreateManageSection } from "@/components/sections/create-manage/create-manage-section";
+import { CreatorCtaSection } from "@/components/sections/creator-cta/creator-cta-section";
 import { GrowthSection } from "@/components/sections/growth/growth-section";
 import { HeroSection } from "@/components/sections/hero/hero-section";
 import { LearningPathsSection } from "@/components/sections/learning-paths/learning-paths-section";
@@ -18,6 +19,7 @@ export default function Home() {
         <GrowthSection />
         <CreateManageSection />
       </GlowBackdrop>
+      <CreatorCtaSection />
     </>
   );
 }

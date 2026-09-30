@@ -1,5 +1,5 @@
 import { CircleCheckIcon } from "lucide-react";
-import { CREATE_MANAGE_SECTION } from "@/constants";
+import { CREATE_MANAGE_SECTION, SECTION_IDS } from "@/constants";
 import { Container } from "@/components/layout/container";
 import { CreateManageVisual } from "./create-manage-visual";
 
@@ -7,7 +7,11 @@ export function CreateManageSection() {
   const { title, brand, description, features } = CREATE_MANAGE_SECTION;
 
   return (
-    <section aria-labelledby="create-manage-title" className="pt-4 pb-14 md:pb-20 lg:pt-0 lg:pb-0">
+    <section
+      id={SECTION_IDS.creators}
+      aria-labelledby="create-manage-title"
+      className="scroll-mt-4 pt-4 pb-14 md:pb-20 lg:pt-0 lg:pb-0"
+    >
       <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-8 xl:grid-cols-[588px_1fr]">
         {/* Top-aligned: centring would count the photo's tall drop shadow and sit the copy too low. */}
         <div className="lg:self-start lg:pt-2.5">
