@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import { AUTH_SHOWCASE, LOGIN_COPY } from "@/constants";
+import { AuthCard } from "@/components/auth/auth-card";
+import { AuthShell } from "@/components/auth/auth-shell";
+import { LoginForm } from "@/components/auth/login-form";
 
 export const metadata: Metadata = {
   title: "Sign In",
@@ -7,8 +11,10 @@ export const metadata: Metadata = {
 
 export default function LoginPage() {
   return (
-    <section className="w-full max-w-md">
-      <h1 className="text-3xl font-semibold tracking-tight">Sign In</h1>
-    </section>
+    <AuthShell showcase={AUTH_SHOWCASE.login}>
+      <AuthCard eyebrow={LOGIN_COPY.eyebrow} title={LOGIN_COPY.title} footer={LOGIN_COPY.footer}>
+        <LoginForm />
+      </AuthCard>
+    </AuthShell>
   );
 }
