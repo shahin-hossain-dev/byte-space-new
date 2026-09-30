@@ -5,6 +5,7 @@ import { GrowthSection } from "@/components/sections/growth/growth-section";
 import { HeroSection } from "@/components/sections/hero/hero-section";
 import { LearningPathsSection } from "@/components/sections/learning-paths/learning-paths-section";
 import { PartnersSection } from "@/components/sections/partners/partners-section";
+import { TestimonialsSection } from "@/components/sections/testimonials/testimonials-section";
 import { GlowBackdrop } from "@/components/shared/glow-backdrop";
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
         <CreateManageSection />
       </GlowBackdrop>
       <CreatorCtaSection />
+      <TestimonialsSection />
     </>
   );
 }

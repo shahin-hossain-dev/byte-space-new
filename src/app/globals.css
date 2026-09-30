@@ -122,6 +122,14 @@
   );
 }
 
+/* Scrollable but with no visible scrollbar — for swipe sliders. */
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 /* Lines sit on cell edges and are centred on the viewport, so stacked bands line up. */
 @utility bg-grid {
   background-image:
