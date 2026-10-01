@@ -1,26 +1,158 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Color system: every color is a token defined in :root below (sampled from
+ * task/landingpage.png). Tailwind's default palette is removed, so `bg-zinc-50`,
+ * `text-black`, etc. generate nothing — use semantic utilities (`bg-primary`,
+ * `text-muted-foreground`). Tints/overlays use opacity on a token (`bg-highlight/20`).
+ * To add a color, define the token in :root and map it in @theme inline.
+ */
+@theme {
+  --color-*: initial;
 }
 
 @theme inline {
+  /* Fonts are loaded in layout.tsx via next/font: Satoshi (body), Poppins (titles). */
+  --font-sans: var(--font-satoshi);
+  --font-heading: var(--font-poppins);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-highlight: var(--highlight);
+  --color-highlight-foreground: var(--highlight-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
+:root {
+  /* Surfaces & text */
+  --background: #ffffff;
+  --foreground: #040819; /* headings, body copy */
+  --card: #ffffff;
+  --card-foreground: #040819;
+  --popover: #ffffff;
+  --popover-foreground: #040819;
+
+  /* Brand blue — hero/creator bands, prices, stats, checks, links */
+  --primary: #003be2;
+  --primary-foreground: #ffffff;
+
+  /* Brand lime — CTAs, active tag, icon circles, decorative blobs */
+  --highlight: #d4fb20;
+  --highlight-foreground: #242528;
+
+  /* Neutral gray surfaces — logo band, tag pills */
+  --secondary: #f5f5f6;
+  --secondary-foreground: #4b4c53;
+  --muted: #f5f5f6;
+  /* Design uses #82868e (3.7:1 on white); darkened to pass WCAG AA 4.5:1. */
+  --muted-foreground: #6b6f78;
+
+  /* Hover/selected state for menus, selects, ghost buttons (shadcn convention) */
+  --accent: #f5f5f6;
+  --accent-foreground: #040819;
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #ced0d3;
+  --input: #ced0d3;
+  --ring: #003be2;
+
+  --radius: 0.625rem;
+
+  /* Blueprint grid on blue bands (header, hero, creator CTA). Header height = one cell. */
+  --grid-line: color-mix(in oklab, var(--primary-foreground) 12%, transparent);
+  --grid-size: 4.5rem;
+}
+
+@media (width >= 48rem) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --grid-size: 6rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (width >= 64rem) {
+  :root {
+    --grid-size: 7.5rem;
+  }
+}
+
+/* Track holds two identical copies, so shifting by half loops seamlessly. */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Fades content out at both horizontal edges into whatever background is behind it. */
+@utility mask-fade-x {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black var(--fade-size, 12%),
+    black calc(100% - var(--fade-size, 12%)),
+    transparent
+  );
+}
+
+/* Scrollable but with no visible scrollbar — for swipe sliders. */
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Lines sit on cell edges and are centred on the viewport, so stacked bands line up. */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  background-position: calc(50% + var(--grid-size) / 2) 0;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button:not(:disabled), [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  html {
+    @apply font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
 }
