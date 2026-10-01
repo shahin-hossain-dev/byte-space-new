@@ -10,6 +10,8 @@ interface AvatarGroupProps {
   size?: number;
   /** Responsive rendered size, e.g. "size-8 md:size-9". */
   itemClassName?: string;
+  /** Colour overrides for the trailing bubble (lime by default). */
+  extraClassName?: string;
   className?: string;
 }
 
@@ -18,6 +20,7 @@ export function AvatarGroup({
   extra,
   size = 36,
   itemClassName = "size-9",
+  extraClassName,
   className,
 }: AvatarGroupProps) {
   return (
@@ -38,6 +41,7 @@ export function AvatarGroup({
           className={cn(
             "flex shrink-0 scale-110 items-center justify-center rounded-full border-2 border-card bg-highlight text-[0.625rem] font-bold text-highlight-foreground md:text-xs",
             itemClassName,
+            extraClassName,
           )}
         >
           {extra}
