@@ -19,6 +19,14 @@ export const INFO_PAGES: InfoPage[] = [
   { slug: slug(ROUTES.cookies), title: "Cookies Settings", description: "How ByteSpace uses cookies and how to manage them." },
 ];
 
+export const NOT_FOUND_COPY = {
+  code: "404",
+  title: "The page you are looking for doesn’t exist",
+  description: "Try to use a correct url or go back to homepage to start again",
+  action: "Back to Home",
+  meta: { title: "Page Not Found", description: "The page you are looking for doesn’t exist." },
+} as const;
+
 export const INFO_PAGE_COPY = {
   comingSoon: "This page is coming soon.",
   backHome: "Back to home",
