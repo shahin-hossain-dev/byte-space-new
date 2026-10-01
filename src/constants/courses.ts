@@ -89,6 +89,11 @@ export const COURSES: Course[] = [
     ...shared,
     id: "build-digital-asset",
     title: "Build Digital Asset",
+    // Matches the course details design (task/Course Details.png).
+    lessons: 112,
+    duration: "24 hours",
+    rating: 4.8,
+    level: "Intermediate",
     image: { src: IMAGES.courses.digitalAsset, alt: "Grid of printed app icons" },
     tags: ["Graphic Design", "Digital Illustration"],
   },

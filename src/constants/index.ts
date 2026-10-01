@@ -5,6 +5,7 @@ export * from "./navigation";
 export * from "./hero";
 export * from "./partners";
 export * from "./courses";
+export * from "./course-details";
 export * from "./learning-paths";
 export * from "./growth";
 export * from "./creator";

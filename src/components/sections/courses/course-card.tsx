@@ -1,6 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ChartNoAxesColumnIcon, StarIcon } from "lucide-react";
-import { COURSES_COPY } from "@/constants";
+import { COURSES_COPY, courseHref } from "@/constants";
 import type { Course } from "@/types";
 import { AvatarGroup } from "@/components/shared/avatar-group";
 import { formatPrice } from "@/lib/format";
@@ -21,7 +22,7 @@ export function CourseCard({ course, className }: CourseCardProps) {
   return (
     <article
       className={cn(
-        "flex flex-col rounded-2xl border border-border bg-card p-4 text-card-foreground transition-shadow hover:shadow-xl hover:shadow-foreground/5",
+        "relative flex flex-col rounded-2xl border border-border bg-card p-4 text-card-foreground transition-shadow outline-ring/50 hover:shadow-xl hover:shadow-foreground/5 has-[a:focus-visible]:outline-3",
         className,
       )}
     >
@@ -47,7 +48,13 @@ export function CourseCard({ course, className }: CourseCardProps) {
 
       <div className="mt-4 flex min-w-0 items-start justify-between gap-3">
         <h3 title={course.title} className="truncate text-xl font-semibold tracking-tight">
-          {course.title}
+          {/* Stretched over the whole card so it's one click target with one tab stop. */}
+          <Link
+            href={courseHref(course.id)}
+            className="outline-none after:absolute after:inset-0 after:rounded-2xl"
+          >
+            {course.title}
+          </Link>
         </h3>
         <p className="flex shrink-0 items-center gap-1 text-lg text-muted-foreground">
           <span aria-hidden="true">{course.rating}</span>

@@ -1,6 +1,7 @@
 export const ROUTES = {
   home: "/",
   search: "/search",
+  courses: "/courses",
   login: "/login",
   signup: "/signup",
   dashboard: "/dashboard",
@@ -23,3 +24,5 @@ export const SECTION_IDS = {
 
 export const sectionHref = (id: (typeof SECTION_IDS)[keyof typeof SECTION_IDS]) =>
   `${ROUTES.home}#${id}`;
+
+export const courseHref = (id: string) => `${ROUTES.courses}/${id}`;
