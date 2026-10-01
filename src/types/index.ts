@@ -45,6 +45,47 @@ export interface Course {
   tags: string[];
 }
 
+export interface CourseLesson {
+  title: string;
+  duration: string;
+}
+
+export interface CourseCreator {
+  name: string;
+  role: string;
+  bio: string;
+  avatar: ImageAsset;
+  href: string;
+}
+
+export interface CourseReview {
+  id: string;
+  name: string;
+  rating: number;
+  date: string;
+  comment: string;
+  avatar: ImageAsset;
+}
+
+export interface CourseInclude {
+  label: string;
+  icon: LucideIcon;
+}
+
+/** Content shown only on the course details page, keyed by `Course.id`. */
+export interface CourseDetail {
+  /** Full page title when it's longer than the card's `Course.title`. */
+  headline?: string;
+  subtitle: string;
+  description: string[];
+  reviewCount: number;
+  students: number;
+  /** The course's opening lessons; `Course.lessons` is the full count. */
+  curriculum: CourseLesson[];
+  keyPoints: string[];
+  sneakPeek: ImageAsset[];
+}
+
 export interface LearningPath {
   id: string;
   label: string;
